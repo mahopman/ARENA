@@ -1,3 +1,18 @@
+[project]
+name = "arena_3_0"
+version = "0.1.0"
+requires-python = ">=3.9"
+dependencies = [
+    "einops>=0.8.1",
+    "ipykernel>=6.29.5",
+    "ipython>=8.18.1",
+    "matplotlib>=3.9.4",
+    "nbformat==4.2.0",
+    "numpy>=2.0.2",
+    "plotly>=6.0.0",
+    "torch>=2.6.0",
+]
+
 [tool.ruff]
 line-length = 120
 
