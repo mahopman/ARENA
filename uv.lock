@@ -177,6 +177,8 @@ source = { virtual = "." }
 dependencies = [
     { name = "circuitsvis" },
     { name = "datasets" },
+    { name = "eindex" },
+    { name = "eindex-callum" },
     { name = "einops" },
     { name = "ipykernel" },
     { name = "ipython", version = "8.18.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -200,6 +202,8 @@ dependencies = [
 requires-dist = [
     { name = "circuitsvis", specifier = ">=1.43.3" },
     { name = "datasets", specifier = ">=3.3.2" },
+    { name = "eindex", specifier = ">=0.1.0" },
+    { name = "eindex-callum", specifier = ">=0.1.2" },
     { name = "einops", specifier = ">=0.8.1" },
     { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "ipython", specifier = ">=8.18.1" },
@@ -705,6 +709,28 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/c5/e6/d1f6c00b7221e2d7c4b470132c931325c8b22c51ca62417e300f5ce16009/docker-pycreds-0.4.0.tar.gz", hash = "sha256:6ce3270bcaf404cc4c3e27e4b6c70d3521deae82fb508767870fdbf772d584d4", size = 8754 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f5/e8/f6bd1eee09314e7e6dee49cbe2c5e22314ccdb38db16c9fc72d2fa80d054/docker_pycreds-0.4.0-py2.py3-none-any.whl", hash = "sha256:7266112468627868005106ec19cd0d722702d2b7d5912a28e19b826c3d37af49", size = 8982 },
+]
+
+[[package]]
+name = "eindex"
+version = "0.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d5/f8/faa6a4a97d1e10ee3b4494ce764aa82daa5916adf562ef5155ca5c632d26/eindex-0.1.0.tar.gz", hash = "sha256:f7225c5e478663931a2ccf25adfff932fd80c942e7c507ca54b709f1b1524954", size = 34342 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/14/d0/a8307baae963d97aea356f8573108b74b60b123ae8caa25efffd8bf607fa/eindex-0.1.0-py3-none-any.whl", hash = "sha256:a806489c30bc2f6ae61417763bc062780d3816b69716c6a7e2419d9c6c80c7c1", size = 13618 },
+]
+
+[[package]]
+name = "eindex-callum"
+version = "0.1.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "einops" },
+    { name = "torch" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/15/ef/d9ca9f21d24adb79514235516a2f34b2531835934da35c7259d6ab9e13ea/eindex-callum-0.1.2.tar.gz", hash = "sha256:b59837f8010c5545be12e28fdffac50ded1d3d0447d2e9000b63a96793b9495b", size = 8065 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/43/cd/3477c50364d2984916fff1d6c8326fdadfa71207df4e2c534c0de62222b8/eindex_callum-0.1.2-py3-none-any.whl", hash = "sha256:d7519c80f897a83ed5a2f52d79ed664cc1f6c04d10419f11bfa6c9626f5c8f80", size = 8350 },
 ]
 
 [[package]]
@@ -1995,7 +2021,7 @@ name = "nvidia-cudnn-cu12"
 version = "9.1.0.70"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "nvidia-cublas-cu12" },
+    { name = "nvidia-cublas-cu12", marker = "sys_platform == 'linux'" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/9f/fd/713452cd72343f682b1c7b9321e23829f00b842ceaedcda96e742ea0b0b3/nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl", hash = "sha256:165764f44ef8c61fcdfdfdbe769d687e06374059fbb388b6c89ecb0e28793a6f", size = 664752741 },
@@ -2006,7 +2032,7 @@ name = "nvidia-cufft-cu12"
 version = "11.2.1.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "nvidia-nvjitlink-cu12" },
+    { name = "nvidia-nvjitlink-cu12", marker = "sys_platform == 'linux'" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/27/94/3266821f65b92b3138631e9c8e7fe1fb513804ac934485a8d05776e1dd43/nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl", hash = "sha256:f083fc24912aa410be21fa16d157fed2055dab1cc4b6934a0e03cba69eb242b9", size = 211459117 },
@@ -2025,9 +2051,9 @@ name = "nvidia-cusolver-cu12"
 version = "11.6.1.9"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "nvidia-cublas-cu12" },
-    { name = "nvidia-cusparse-cu12" },
-    { name = "nvidia-nvjitlink-cu12" },
+    { name = "nvidia-cublas-cu12", marker = "sys_platform == 'linux'" },
+    { name = "nvidia-cusparse-cu12", marker = "sys_platform == 'linux'" },
+    { name = "nvidia-nvjitlink-cu12", marker = "sys_platform == 'linux'" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/3a/e1/5b9089a4b2a4790dfdea8b3a006052cfecff58139d5a4e34cb1a51df8d6f/nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl", hash = "sha256:19e33fa442bcfd085b3086c4ebf7e8debc07cfe01e11513cc6d332fd918ac260", size = 127936057 },
@@ -2038,7 +2064,7 @@ name = "nvidia-cusparse-cu12"
 version = "12.3.1.170"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "nvidia-nvjitlink-cu12" },
+    { name = "nvidia-nvjitlink-cu12", marker = "sys_platform == 'linux'" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/db/f7/97a9ea26ed4bbbfc2d470994b8b4f338ef663be97b8f677519ac195e113d/nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl", hash = "sha256:ea4f11a2904e2a8dc4b1833cc1b5181cde564edd0d5cd33e3c168eff2d1863f1", size = 207454763 },

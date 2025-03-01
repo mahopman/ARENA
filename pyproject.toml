@@ -5,6 +5,8 @@ requires-python = ">=3.9"
 dependencies = [
     "circuitsvis>=1.43.3",
     "datasets>=3.3.2",
+    "eindex>=0.1.0",
+    "eindex-callum>=0.1.2",
     "einops>=0.8.1",
     "ipykernel>=6.29.5",
     "ipython>=8.18.1",
